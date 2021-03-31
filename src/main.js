@@ -5,7 +5,14 @@
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-var currentCover;
+
+var titleIndex = getRandomIndex(titles);
+var coverIndex = getRandomIndex(covers);
+var taglineIndex1 = getRandomIndex(descriptors);
+var taglineIndex2 = getRandomIndex(descriptors);
+
+var currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
+
 
 // Add your event listeners here 👇
 
