@@ -1,5 +1,8 @@
 // Create variables targetting the relevant DOM elements here 👇
-
+var coverImg = document.querySelector('.cover-image');
+var coverTitle = document.querySelector('.cover-title');
+var descriptor1 = document.querySelector('.tagline-1');
+var descriptor2 = document.querySelector('.tagline-2');
 
 // We've provided a few variables below
 var savedCovers = [
