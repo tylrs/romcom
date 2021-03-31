@@ -16,6 +16,10 @@ var taglineIndex2 = getRandomIndex(descriptors);
 
 var currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
 
+coverImg.src = currentCover.cover;
+coverTitle.innerText = currentCover.title;
+descriptor1.innerText = currentCover.tagline1;
+descriptor2.innerText = currentCover.tagline2;
 
 // Add your event listeners here 👇
 
