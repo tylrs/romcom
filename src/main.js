@@ -15,45 +15,44 @@ var userCover = document.querySelector('.user-cover');
 var userTitle = document.querySelector('.user-title');
 var userdescriptor1 = document.querySelector('.user-desc1');
 var userdescriptor2 = document.querySelector('.user-desc2');
+
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 
-var coverIndex = getRandomIndex(covers);
-var titleIndex = getRandomIndex(titles);
-var taglineIndex1 = getRandomIndex(descriptors);
-var taglineIndex2 = getRandomIndex(descriptors);
-
-var currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
-
-coverImg.src = currentCover.cover;
-coverTitle.innerText = currentCover.title;
-descriptor1.innerText = currentCover.tagline1;
-descriptor2.innerText = currentCover.tagline2;
+var currentCover;
+generateCover();
+showCover();
 
 // Add your event listeners here 👇
 homeButton.addEventListener('click', showHomeView);
-randomCoverButton.addEventListener('click', generateCover);
+randomCoverButton.addEventListener('click', showRandomCover);
 //saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView)
 makeOwnCoverButton.addEventListener('click', showFormView);
 
 
 // Create your event handlers and other functions here 👇
+function showRandomCover() {
+  generateCover();
+  showCover();
+};
+
 function generateCover() {
   var coverIndex = getRandomIndex(covers);
   var titleIndex = getRandomIndex(titles);
   var taglineIndex1 = getRandomIndex(descriptors);
   var taglineIndex2 = getRandomIndex(descriptors);
+  currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
+};
 
-  var currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
-
+function showCover() {
   coverImg.src = currentCover.cover;
   coverTitle.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
   descriptor2.innerText = currentCover.tagline2;
-}
+};
 
 function showFormView() {
   formView.classList.remove('hidden');
