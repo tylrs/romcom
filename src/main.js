@@ -23,11 +23,25 @@ descriptor2.innerText = currentCover.tagline2;
 
 // Add your event listeners here 👇
 randomCoverButton.addEventListener('click', generateCover)
+randomCoverButton.addEventListener('click', showCover)
 
 // Create your event handlers and other functions here 👇
 function generateCover() {
+  var coverIndex = getRandomIndex(covers);
+  var titleIndex = getRandomIndex(titles);
+  var taglineIndex1 = getRandomIndex(descriptors);
+  var taglineIndex2 = getRandomIndex(descriptors);
 
+  var currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
+
+  coverImg.src = currentCover.cover;
+  coverTitle.innerText = currentCover.title;
+  descriptor1.innerText = currentCover.tagline1;
+  descriptor2.innerText = currentCover.tagline2;
 }
+
+// function showCover() {
+// }
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
