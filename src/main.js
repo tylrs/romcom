@@ -11,6 +11,10 @@ var makeOwnCoverButton = document.querySelector('.make-new-button');
 var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
 var formView = document.querySelector('.form-view');
+var userCover = document.querySelector('.user-cover');
+var userTitle = document.querySelector('.user-title');
+var userdescriptor1 = document.querySelector('.user-desc1');
+var userdescriptor2 = document.querySelector('.user-desc2');
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
