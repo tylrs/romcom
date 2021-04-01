@@ -22,15 +22,15 @@ var savedCovers = [
 ];
 
 var currentCover;
-generateCover();
-showCover();
 
 // Add your event listeners here 👇
+this.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
 randomCoverButton.addEventListener('click', showRandomCover);
 //saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView)
 makeOwnCoverButton.addEventListener('click', showFormView);
+
 
 
 // Create your event handlers and other functions here 👇
