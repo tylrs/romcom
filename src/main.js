@@ -5,7 +5,7 @@ var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
 var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
-var savedCoverButton = document.querySelector('.save-cover-button');
+var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.saved-view');
 var makeOwnCoverButton = document.querySelector('.make-new-button');
 var homeView = document.querySelector('.home-view');
@@ -29,10 +29,10 @@ descriptor1.innerText = currentCover.tagline1;
 descriptor2.innerText = currentCover.tagline2;
 
 // Add your event listeners here 👇
-homeCoverButton.addEventListener('click', showHomeView);
+//homeButton.addEventListener('click', showHomeView);
 randomCoverButton.addEventListener('click', generateCover);
-savedCoverButton.addEventListener('click', saveCover);
-viewSavedButton.addEventListener('click', showSavedView)
+//saveCoverButton.addEventListener('click', saveCover);
+//viewSavedButton.addEventListener('click', showSavedView)
 makeOwnCoverButton.addEventListener('click', showFormView);
 
 
@@ -58,10 +58,16 @@ function generateCover() {
 }
 
 function showFormView() {
+  formView.classList.remove('hidden')
+  homeView.classList.add('hidden')
+  randomCoverButton.classList.add('hidden')
+  saveCoverButton.classList.add('hidden')
+  homeButton.classList.remove('hidden')
+};
   //show see form view (unhide form view), hide homepage view, hide show new random and save cover buttons
   //show home button
   //var for homepage, show new random , save cover and home buttons
-}
+
 // function showCover() {
 // }
 
