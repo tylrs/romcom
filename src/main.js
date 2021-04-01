@@ -29,7 +29,7 @@ descriptor1.innerText = currentCover.tagline1;
 descriptor2.innerText = currentCover.tagline2;
 
 // Add your event listeners here 👇
-//homeButton.addEventListener('click', showHomeView);
+homeButton.addEventListener('click', showHomeView);
 randomCoverButton.addEventListener('click', generateCover);
 //saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView)
@@ -68,6 +68,14 @@ function showSavedView() {
   homeButton.classList.remove('hidden');
 };
 
+function showHomeView() {
+  formView.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  savedView.classList.add('hidden');
+  randomCoverButton.classList.remove('hidden');
+  saveCoverButton.classList.remove('hidden');
+  homeButton.classList.add('hidden');
+};
 // function showCover() {
 // }
 
