@@ -3,8 +3,14 @@ var coverImg = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
+var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
-var makeOwnCoverButton = document.querySelector('.make-new-button')
+var savedCoverButton = document.querySelector('.save-cover-button');
+var viewSavedButton = document.querySelector('.saved-view');
+var makeOwnCoverButton = document.querySelector('.make-new-button');
+var homeView = document.querySelector('.home-view');
+var savedView = document.querySelector('.saved-view');
+var formView = document.querySelector('.form-view');
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -23,8 +29,13 @@ descriptor1.innerText = currentCover.tagline1;
 descriptor2.innerText = currentCover.tagline2;
 
 // Add your event listeners here 👇
-randomCoverButton.addEventListener('click', generateCover)
-makeOwnCoverButton.addEventListener('click', showFormView)
+homeCoverButton.addEventListener('click', showHomeView);
+randomCoverButton.addEventListener('click', generateCover);
+savedCoverButton.addEventListener('click', saveCover);
+viewSavedButton.addEventListener('click', showSavedView)
+makeOwnCoverButton.addEventListener('click', showFormView);
+
+
 //randomCoverButton.addEventListener('click', showCover)
 //access html element make own cover button
 //event listener for make own cover
@@ -46,6 +57,11 @@ function generateCover() {
   descriptor2.innerText = currentCover.tagline2;
 }
 
+function showFormView() {
+  //show see form view (unhide form view), hide homepage view, hide show new random and save cover buttons
+  //show home button
+  //var for homepage, show new random , save cover and home buttons
+}
 // function showCover() {
 // }
 
