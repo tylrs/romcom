@@ -3,18 +3,22 @@ var coverImg = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
+
 var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var makeOwnCoverButton = document.querySelector('.make-new-button');
+var createUserBook = document.querySelector('.create-new-book-button');
+
 var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
 var formView = document.querySelector('.form-view');
+
 var userCover = document.querySelector('.user-cover');
 var userTitle = document.querySelector('.user-title');
-var userdescriptor1 = document.querySelector('.user-desc1');
-var userdescriptor2 = document.querySelector('.user-desc2');
+var userDescriptor1 = document.querySelector('.user-desc1');
+var userDescriptor2 = document.querySelector('.user-desc2');
 
 // We've provided a few variables below
 var savedCovers = [
@@ -24,12 +28,14 @@ var savedCovers = [
 var currentCover;
 
 // Add your event listeners here 👇
-this.addEventListener('DOMContentLoaded', showRandomCover);
+window.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
 randomCoverButton.addEventListener('click', showRandomCover);
-//saveCoverButton.addEventListener('click', saveCover);
+saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView)
 makeOwnCoverButton.addEventListener('click', showFormView);
+// createUserBook.addEventListener('click');
+
 
 
 
@@ -79,10 +85,26 @@ function showHomeView() {
   saveCoverButton.classList.remove('hidden');
   homeButton.classList.add('hidden');
 };
-// function showCover() {
-// }
+
+function saveUserBook() {
+  //Collect data and save into arrays
+  covers.push(userCover.value);
+  titles.push(userTitle.value);
+  descriptors.push(userDescriptor1.value);
+  descriptors.push(userDescriptor2.value);
+  //create a new book from user information
+  currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
+  //change back to showHomeView
+  showHomeView();
+  //Display newly created Book
+  showCover();
+};
+
+function saveCover() {
+
+};
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
