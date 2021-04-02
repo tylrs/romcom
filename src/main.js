@@ -34,7 +34,7 @@ randomCoverButton.addEventListener('click', showRandomCover);
 saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView)
 makeOwnCoverButton.addEventListener('click', showFormView);
-// createUserBook.addEventListener('click');
+createUserBook.addEventListener('click', saveUserBook);
 
 
 
@@ -87,6 +87,7 @@ function showHomeView() {
 };
 
 function saveUserBook() {
+  event.preventDefault();
   //Collect data and save into arrays
   covers.push(userCover.value);
   titles.push(userTitle.value);
