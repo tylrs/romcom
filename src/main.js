@@ -20,6 +20,8 @@ var userTitle = document.querySelector('.user-title');
 var userDescriptor1 = document.querySelector('.user-desc1');
 var userDescriptor2 = document.querySelector('.user-desc2');
 
+var savedCoversSection = document.querySelector('.saved-covers-section');
+
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -75,6 +77,8 @@ function showSavedView() {
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
+  displaySavedCovers();
+
 //   var savedSection = document.querySelector('.saved-cover-section')
 // undefined
 // savedSection.innerHTML += `<p class="mini-cover">Hello</p>`
@@ -83,7 +87,7 @@ function showSavedView() {
 //reassign them to the value of the the covers in the array
 //add CSS class mini-cover
 //for loop
-//for each element in array add HTML element and the content and the mini-cover class 
+//for each element in array add HTML element and the content and the mini-cover class
 };
 
 function showHomeView() {
@@ -116,6 +120,21 @@ function saveCover() {
   };
 };
 
+function displaySavedCovers() {
+  savedCoversSection.innerHTML += `
+  <section class="mini-cover">
+    <img class="cover-image" src="${savedCovers[0].cover}">
+    <h2 class="cover-title">${savedCovers[0].title}</h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[0].tagline1}</span> and <span class="tagline-2">${savedCovers[0].tagline2}</span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+  </section>
+  `
+  //What HTML elements should we add to display covers?
+
+  //How do we get information out of the savedCovers array
+  //How do we get info out of each cover object?
+}
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
