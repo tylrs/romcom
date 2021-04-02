@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
 randomCoverButton.addEventListener('click', showRandomCover);
 saveCoverButton.addEventListener('click', saveCover);
-viewSavedButton.addEventListener('click', showSavedView)
+viewSavedButton.addEventListener('click', showSavedView);
 makeOwnCoverButton.addEventListener('click', showFormView);
 createUserBook.addEventListener('click', saveUserBook);
 
@@ -75,6 +75,15 @@ function showSavedView() {
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
+//   var savedSection = document.querySelector('.saved-cover-section')
+// undefined
+// savedSection.innerHTML += `<p class="mini-cover">Hello</p>`
+//Take all of the home view HTML elements and using .innerHTML we will insert all of those elements into the saved-section
+//then somehow target those new elements
+//reassign them to the value of the the covers in the array
+//add CSS class mini-cover
+//for loop
+//for each element in array add HTML element and the content and the mini-cover class 
 };
 
 function showHomeView() {
@@ -106,6 +115,7 @@ function saveCover() {
     savedCovers.push(currentCover);
   };
 };
+
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
