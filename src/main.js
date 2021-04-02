@@ -102,7 +102,9 @@ function saveUserBook() {
 };
 
 function saveCover() {
-
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+  };
 };
 
 // We've provided one function to get you started
