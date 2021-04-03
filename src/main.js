@@ -38,7 +38,41 @@ saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView);
 makeOwnCoverButton.addEventListener('click', showFormView);
 createUserBook.addEventListener('click', saveUserBook);
-
+savedSection.addEventListener('dblclick', function(event) {
+  console.log(event.path);
+  // var eventPath = event.path;
+  console.log(event.path[1])
+  console.log(event.path[1].id);
+  //find the id of the one clicked from the event path and use that to delete at the array
+  eventPathId = parseInt(event.path[1].id, 10);
+  // console.log(eventPathId);
+  // console.log(savedCovers);
+  if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
+    //event.path[2]
+    eventPathId = parseInt(event.path[2].id, 10);
+    event.path[2].remove();
+    console.log("Start of for loop");
+    for (var i = 0; i < savedCovers.length; i ++) {
+      console.log(typeof eventPathId);
+      console.log(typeof savedCovers[i].id);
+      if (savedCovers[i].id === eventPathId) {
+        console.log("It's deleting the tag line from the array");
+        savedCovers.splice(i, 1);
+      }
+    }
+    console.log("It worked for the tag line");
+  } else if (event.path[1].className === "mini-cover") {
+      event.path[1].remove();
+      for (var i = 0; i < savedCovers.length; i ++) {
+        console.log(typeof eventPathId);
+        console.log(typeof savedCovers[i].id);
+        if (savedCovers[i].id === eventPathId) {
+          console.log("It's working");
+          savedCovers.splice(i, 1);
+        }
+      }
+  };
+});
 
 
 
