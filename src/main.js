@@ -1,26 +1,27 @@
 // Create variables targetting the relevant DOM elements here 👇
+//Home page cover
 var coverImg = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
-
+//Buttons
 var homeButton = document.querySelector('.home-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var makeOwnCoverButton = document.querySelector('.make-new-button');
 var createUserBook = document.querySelector('.create-new-book-button');
-
+//Views
 var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
 var formView = document.querySelector('.form-view');
-
+//User Input
 var userCover = document.querySelector('.user-cover');
 var userTitle = document.querySelector('.user-title');
 var userDescriptor1 = document.querySelector('.user-desc1');
 var userDescriptor2 = document.querySelector('.user-desc2');
 
-var savedCoversSection = document.querySelector('.saved-covers-section');
+var savedSection = document.querySelector('.saved-covers-section');
 
 // We've provided a few variables below
 var savedCovers = [
@@ -68,6 +69,7 @@ function showFormView() {
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
+  savedView.classList.add('hidden');
 };
 
 function showSavedView() {
@@ -77,17 +79,6 @@ function showSavedView() {
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
-  displaySavedCovers();
-
-//   var savedSection = document.querySelector('.saved-cover-section')
-// undefined
-// savedSection.innerHTML += `<p class="mini-cover">Hello</p>`
-//Take all of the home view HTML elements and using .innerHTML we will insert all of those elements into the saved-section
-//then somehow target those new elements
-//reassign them to the value of the the covers in the array
-//add CSS class mini-cover
-//for loop
-//for each element in array add HTML element and the content and the mini-cover class
 };
 
 function showHomeView() {
@@ -101,40 +92,26 @@ function showHomeView() {
 
 function saveUserBook() {
   event.preventDefault();
-  //Collect data and save into arrays
   covers.push(userCover.value);
   titles.push(userTitle.value);
   descriptors.push(userDescriptor1.value);
   descriptors.push(userDescriptor2.value);
-  //create a new book from user information
   currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
-  //change back to showHomeView
   showHomeView();
-  //Display newly created Book
   showCover();
 };
 
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
+    savedSection.innerHTML += `<section class="mini-cover" id = "${currentCover.id}">
+        <img class="cover-image" src="${currentCover.cover}">
+        <h2 class="cover-title">${currentCover.title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${currentCover.tagline1}</span> and <span class="tagline-2">${currentCover.tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src="./assets/overlay.png">`
   };
 };
-
-function displaySavedCovers() {
-  savedCoversSection.innerHTML += `
-  <section class="mini-cover">
-    <img class="cover-image" src="${savedCovers[0].cover}">
-    <h2 class="cover-title">${savedCovers[0].title}</h2>
-    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[0].tagline1}</span> and <span class="tagline-2">${savedCovers[0].tagline2}</span></h3>
-    <img class="price-tag" src="./assets/price.png">
-    <img class="overlay" src="./assets/overlay.png">
-  </section>
-  `
-  //What HTML elements should we add to display covers?
-
-  //How do we get information out of the savedCovers array
-  //How do we get info out of each cover object?
-}
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
