@@ -1,4 +1,4 @@
-// Create variables targeting the relevant DOM elements here 👇
+// DOM elements👇
 //Home page cover
 var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
@@ -23,13 +23,13 @@ var userDescriptor2 = document.querySelector('.user-desc2');
 //Other
 var savedSection = document.querySelector('.saved-covers-section');
 
-// We've provided a few variables below
+// Global Variables
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 var currentCover;
 
-// Add your event listeners here 👇
+// Event listeners
 window.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
 viewSavedButton.addEventListener('click', showSavedView);
@@ -39,7 +39,7 @@ saveCoverButton.addEventListener('click', saveCover);
 createUserBook.addEventListener('click', saveUserBook);
 savedSection.addEventListener('dblclick', deleteCover);
 
-// Create your event handlers and other functions here 👇
+// Event Handlers
 function showRandomCover() {
   generateCover();
   showCover();
@@ -148,7 +148,7 @@ function deleteCover() {
   };
 };
 
-// We've provided one function to get you started
+// Other Function
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
