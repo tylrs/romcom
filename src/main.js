@@ -10,7 +10,7 @@ var viewSavedButton = document.querySelector('.view-saved-button');
 var makeOwnCoverButton = document.querySelector('.make-new-button');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
-var createUserBook = document.querySelector('.create-new-book-button');
+var createUserBookButton = document.querySelector('.create-new-book-button');
 //Views
 var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
@@ -36,7 +36,7 @@ viewSavedButton.addEventListener('click', showSavedView);
 makeOwnCoverButton.addEventListener('click', showFormView);
 randomCoverButton.addEventListener('click', showRandomCover);
 saveCoverButton.addEventListener('click', saveCover);
-createUserBook.addEventListener('click', saveUserBook);
+createUserBookButton.addEventListener('click', createUserBook);
 savedSection.addEventListener('dblclick', function(event) {
   if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
     var eventPathId = parseInt(event.path[2].id, 10);
@@ -105,7 +105,7 @@ function showFormView() {
   homeButton.classList.remove('hidden');
 };
 
-function saveUserBook() {
+function createUserBook() {
   event.preventDefault();
   covers.push(userCoverImage.value);
   titles.push(userTitle.value);
