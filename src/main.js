@@ -119,15 +119,24 @@ function saveUserBook() {
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
-    savedSection.innerHTML += `
-        <section class="mini-cover" id = "${currentCover.id}">
-          <img class="cover-image" src="${currentCover.cover}">
-          <h2 class="cover-title">${currentCover.title}</h2>
-          <h3 class="tagline">A tale of <span class="tagline-1">${currentCover.tagline1}</span> and <span class="tagline-2">${currentCover.tagline2}</span></h3>
+    displaySavedCovers();
+  };
+};
+
+function displaySavedCovers() {
+  savedSection.innerHTML = '';
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedSection.innerHTML +=
+      `
+        <section class="mini-cover" id = "${savedCovers[i].id}">
+          <img class="cover-image" src="${savedCovers[i].cover}">
+          <h2 class="cover-title">${savedCovers[i].title}</h2>
+          <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
           <img class="price-tag" src="./assets/price.png">
           <img class="overlay" src="./assets/overlay.png">
         </section>
-  `};
+      `
+  };
 };
 
 // We've provided one function to get you started
