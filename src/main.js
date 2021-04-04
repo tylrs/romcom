@@ -1,6 +1,6 @@
 // Create variables targeting the relevant DOM elements here 👇
 //Home page cover
-var coverImg = document.querySelector('.cover-image');
+var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
@@ -16,7 +16,7 @@ var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
 var formView = document.querySelector('.form-view');
 //User Input
-var userCover = document.querySelector('.user-cover');
+var userCoverImage = document.querySelector('.user-cover');
 var userTitle = document.querySelector('.user-title');
 var userDescriptor1 = document.querySelector('.user-desc1');
 var userDescriptor2 = document.querySelector('.user-desc2');
@@ -73,7 +73,7 @@ function generateCover() {
 };
 
 function showCover() {
-  coverImg.src = currentCover.cover;
+  coverImage.src = currentCover.cover;
   coverTitle.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
   descriptor2.innerText = currentCover.tagline2;
@@ -109,11 +109,11 @@ function showFormView() {
 
 function saveUserBook() {
   event.preventDefault();
-  covers.push(userCover.value);
+  covers.push(userCoverImage.value);
   titles.push(userTitle.value);
   descriptors.push(userDescriptor1.value);
   descriptors.push(userDescriptor2.value);
-  currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
+  currentCover = new Cover(userCoverImage.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
   showCover();
   showHomeView();
 };
