@@ -1,4 +1,4 @@
-// Create variables targeting the relevant DOM elements here 👇
+// DOM elements👇
 //Home page cover
 var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('.cover-title');
@@ -23,13 +23,13 @@ var userDescriptor2 = document.querySelector('.user-desc2');
 //Other
 var savedSection = document.querySelector('.saved-covers-section');
 
-// We've provided a few variables below
+// Global Variables
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 var currentCover;
 
-// Add your event listeners here 👇
+// Event listeners
 window.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
 viewSavedButton.addEventListener('click', showSavedView);
@@ -37,27 +37,9 @@ makeOwnCoverButton.addEventListener('click', showFormView);
 randomCoverButton.addEventListener('click', showRandomCover);
 saveCoverButton.addEventListener('click', saveCover);
 createUserBook.addEventListener('click', saveUserBook);
-savedSection.addEventListener('dblclick', function(event) {
-  if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
-    var eventPathId = parseInt(event.path[2].id, 10);
-    event.path[2].remove();
-    for (var i = 0; i < savedCovers.length; i ++) {
-      if (savedCovers[i].id === eventPathId) {
-        savedCovers.splice(i, 1);
-      };
-    };
-  } else if (event.path[1].className === "mini-cover") {
-      var eventPathId = parseInt(event.path[1].id, 10);
-      event.path[1].remove();
-      for (var i = 0; i < savedCovers.length; i ++) {
-        if (savedCovers[i].id === eventPathId) {
-          savedCovers.splice(i, 1);
-        };
-      };
-  };
-});
+savedSection.addEventListener('dblclick', deleteCover);
 
-// Create your event handlers and other functions here 👇
+// Event Handlers
 function showRandomCover() {
   generateCover();
   showCover();
@@ -107,30 +89,71 @@ function showFormView() {
 
 function saveUserBook() {
   event.preventDefault();
-  covers.push(userCoverImage.value);
-  titles.push(userTitle.value);
-  descriptors.push(userDescriptor1.value);
-  descriptors.push(userDescriptor2.value);
-  currentCover = new Cover(userCoverImage.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
-  showCover();
-  showHomeView();
+  if (userCoverImage.value && userTitle.value && userDescriptor1.value && userDescriptor2.value) {
+    covers.push(userCoverImage.value);
+    titles.push(userTitle.value);
+    descriptors.push(userDescriptor1.value);
+    descriptors.push(userDescriptor2.value);
+    currentCover = new Cover(userCoverImage.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
+    showCover();
+    showHomeView();
+  } else {
+    formView.innerHTML +=
+    `
+      <p style="text-align:center;color:red">Please fill out all fields</p>
+    `
+  }
 };
 
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
-    savedSection.innerHTML += `
-        <section class="mini-cover" id = "${currentCover.id}">
-          <img class="cover-image" src="${currentCover.cover}">
-          <h2 class="cover-title">${currentCover.title}</h2>
-          <h3 class="tagline">A tale of <span class="tagline-1">${currentCover.tagline1}</span> and <span class="tagline-2">${currentCover.tagline2}</span></h3>
+    displaySavedCovers();
+  };
+};
+
+function displaySavedCovers() {
+  savedSection.innerHTML = '';
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedSection.innerHTML +=
+      `
+        <section class="mini-cover" id = "${savedCovers[i].id}">
+          <img class="cover-image" src="${savedCovers[i].cover}">
+          <h2 class="cover-title">${savedCovers[i].title}</h2>
+          <h3 class="tagline">
+            A tale of
+            <span class="tagline-1">${savedCovers[i].tagline1}</span>
+            and
+            <span class="tagline-2">${savedCovers[i].tagline2}</span>
+          </h3>
           <img class="price-tag" src="./assets/price.png">
           <img class="overlay" src="./assets/overlay.png">
         </section>
-  `};
+      `
+  };
 };
 
-// We've provided one function to get you started
+function deleteCover() {
+  if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
+    var eventPathId = parseInt(event.path[2].id, 10);
+    for (var i = 0; i < savedCovers.length; i ++) {
+      if (savedCovers[i].id === eventPathId) {
+        savedCovers.splice(i, 1);
+        displaySavedCovers();
+      };
+    };
+  } else if (event.path[1].className === "mini-cover") {
+      var eventPathId = parseInt(event.path[1].id, 10);
+      for (var i = 0; i < savedCovers.length; i ++) {
+        if (savedCovers[i].id === eventPathId) {
+          savedCovers.splice(i, 1);
+          displaySavedCovers();
+        };
+      };
+  };
+};
+
+// Other Function
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
