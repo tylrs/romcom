@@ -12,35 +12,27 @@ The project itself is built with the use of CSS, HTML, and Javascript. We comple
 
 ## Overview
 
-People say that romance novels are formulaic. Well… maybe that’s true. We’re going to make an app that generates romance novel covers!
+People say that romance novels are formulaic. Well… maybe that’s true. We’re going to make an app that generates formulaic romance novel covers!
 
 ## Instructions for Running and Viewing Our Project
 
 Upon launching our page, you will see a randomly generated romance novel cover that includes a randomly generated title and taglines.
 
-Navigation for the site is at the top of the page, allowing 
+Navigation for the site is at the top of the page, allowing users to click to generate a new random cover, save those covers if you like them, view those previously saved covers and even make your own! Each button is tied to event listeners making the page interactive. Buttons are as listed:
+* Show New Random Cover
+* Save Cover
+* View Saved Covers
+* Make Your Own Cover
 
-The top of the page gives you four options to play around with the romance novel data that we have stored, and will even allow you to add your own data!
+In the View Saved Covers section, users can double click any previously saved covers to delete them if they don't like them....perhaps the romance has fizzled?
+In the Make Your Own Cover section, users can use a form to generate any novel with their own source image, title and tagline....make up your own love life!
 
-The first button, reading from the left is "Show New Random Cover". Pressing this button will generate yet another random cover, title, and descriptor, right on the home screen.
+## Deploy Link
 
-If you like this cover, you can click the second button "Save Cover". This will add the cover you like to your saved covers page. You can view all these saved covers by pressing the third button "View Saved Covers".
+Click [here](https://tylrs.github.io/romcom/) to deploy our page!
 
-Finally, the fourth button "Make Your Own Cover" will reveal four input fields where you can type the URL of an image you would like to see on a cover, a custom title, and two custom descriptors. Pressing the "Make my Book" button below these fields will display your new cover on the main page. At the same time, this button will also add the data you added to the original list, meaning your information has an opportunity to show up randomly as well.
+## Future Additions
 
-
-A boilerplate repo.
-
-## Set Up
-1. ONE teammate: fork this boilerplate repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
-
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
-
-
-<!--
-README is well formatted and gives good context about the project. At minimum, a sufficient README should contain - contributors, technologies used, instructions for running and viewing the project, deploy link (gh-pages), images/GIFs if necessary, future additions, etc. Think about what a user needs to understand and get the full picture of the application. -->
+If we had more time to take this project further, we would have loved to make the delete cover event handler adhere better to the DRY principle. We would have loved to also complete the optional extension:
+* When a user single clicks a saved cover, create a modal to view it larger
+* Allow users to drag and drop saved posters into whatever order they want them to appear

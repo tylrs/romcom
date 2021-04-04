@@ -89,13 +89,20 @@ function showFormView() {
 
 function saveUserBook() {
   event.preventDefault();
-  covers.push(userCoverImage.value);
-  titles.push(userTitle.value);
-  descriptors.push(userDescriptor1.value);
-  descriptors.push(userDescriptor2.value);
-  currentCover = new Cover(userCoverImage.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
-  showCover();
-  showHomeView();
+  if (userCoverImage.value && userTitle.value && userDescriptor1.value && userDescriptor2.value) {
+    covers.push(userCoverImage.value);
+    titles.push(userTitle.value);
+    descriptors.push(userDescriptor1.value);
+    descriptors.push(userDescriptor2.value);
+    currentCover = new Cover(userCoverImage.value, userTitle.value, userDescriptor1.value, userDescriptor2.value);
+    showCover();
+    showHomeView();
+  } else {
+    formView.innerHTML +=
+    `
+      <p style="text-align:center;color:red">Please fill out all fields</p>
+    `
+  }
 };
 
 function saveCover() {
