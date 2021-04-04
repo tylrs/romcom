@@ -6,10 +6,10 @@ var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
 //Buttons
 var homeButton = document.querySelector('.home-button');
-var randomCoverButton = document.querySelector('.random-cover-button');
-var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var makeOwnCoverButton = document.querySelector('.make-new-button');
+var randomCoverButton = document.querySelector('.random-cover-button');
+var saveCoverButton = document.querySelector('.save-cover-button');
 var createUserBook = document.querySelector('.create-new-book-button');
 //Views
 var homeView = document.querySelector('.home-view');
@@ -20,7 +20,7 @@ var userCover = document.querySelector('.user-cover');
 var userTitle = document.querySelector('.user-title');
 var userDescriptor1 = document.querySelector('.user-desc1');
 var userDescriptor2 = document.querySelector('.user-desc2');
-
+//Other
 var savedSection = document.querySelector('.saved-covers-section');
 
 // We've provided a few variables below
@@ -79,32 +79,33 @@ function showCover() {
   descriptor2.innerText = currentCover.tagline2;
 };
 
-function showFormView() {
-  formView.classList.remove('hidden');
-  homeView.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  savedView.classList.add('hidden');
-};
-
-function showSavedView() {
-  formView.classList.add('hidden');
-  homeView.classList.add('hidden');
-  savedView.classList.remove('hidden');
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-};
-
 function showHomeView() {
-  formView.classList.add('hidden');
   homeView.classList.remove('hidden');
   savedView.classList.add('hidden');
+  formView.classList.add('hidden');
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   homeButton.classList.add('hidden');
 };
+
+function showSavedView() {
+  homeView.classList.add('hidden');
+  savedView.classList.remove('hidden');
+  formView.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+};
+
+function showFormView() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+  formView.classList.remove('hidden');
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+};
+
 
 function saveUserBook() {
   event.preventDefault();
