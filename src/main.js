@@ -37,25 +37,7 @@ makeOwnCoverButton.addEventListener('click', showFormView);
 randomCoverButton.addEventListener('click', showRandomCover);
 saveCoverButton.addEventListener('click', saveCover);
 createUserBook.addEventListener('click', saveUserBook);
-savedSection.addEventListener('dblclick', function(event) {
-  if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
-    var eventPathId = parseInt(event.path[2].id, 10);
-    event.path[2].remove();
-    for (var i = 0; i < savedCovers.length; i ++) {
-      if (savedCovers[i].id === eventPathId) {
-        savedCovers.splice(i, 1);
-      };
-    };
-  } else if (event.path[1].className === "mini-cover") {
-      var eventPathId = parseInt(event.path[1].id, 10);
-      event.path[1].remove();
-      for (var i = 0; i < savedCovers.length; i ++) {
-        if (savedCovers[i].id === eventPathId) {
-          savedCovers.splice(i, 1);
-        };
-      };
-  };
-});
+savedSection.addEventListener('dblclick', deleteCover);
 
 // Create your event handlers and other functions here 👇
 function showRandomCover() {
@@ -136,6 +118,26 @@ function displaySavedCovers() {
           <img class="overlay" src="./assets/overlay.png">
         </section>
       `
+  };
+};
+
+function deleteCover() {
+  if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
+    var eventPathId = parseInt(event.path[2].id, 10);
+    for (var i = 0; i < savedCovers.length; i ++) {
+      if (savedCovers[i].id === eventPathId) {
+        savedCovers.splice(i, 1);
+        displaySavedCovers();
+      };
+    };
+  } else if (event.path[1].className === "mini-cover") {
+      var eventPathId = parseInt(event.path[1].id, 10);
+      for (var i = 0; i < savedCovers.length; i ++) {
+        if (savedCovers[i].id === eventPathId) {
+          savedCovers.splice(i, 1);
+          displaySavedCovers();
+        };
+      };
   };
 };
 
