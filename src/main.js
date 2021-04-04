@@ -33,10 +33,10 @@ var currentCover;
 // Add your event listeners here 👇
 window.addEventListener('DOMContentLoaded', showRandomCover);
 homeButton.addEventListener('click', showHomeView);
-randomCoverButton.addEventListener('click', showRandomCover);
-saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', showSavedView);
 makeOwnCoverButton.addEventListener('click', showFormView);
+randomCoverButton.addEventListener('click', showRandomCover);
+saveCoverButton.addEventListener('click', saveCover);
 createUserBook.addEventListener('click', saveUserBook);
 savedSection.addEventListener('dblclick', function(event) {
   if (event.target.className === 'tagline-1' || event.target.className === 'tagline-2') {
@@ -120,13 +120,15 @@ function saveUserBook() {
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
-    savedSection.innerHTML += `<section class="mini-cover" id = "${currentCover.id}">
-        <img class="cover-image" src="${currentCover.cover}">
-        <h2 class="cover-title">${currentCover.title}</h2>
-        <h3 class="tagline">A tale of <span class="tagline-1">${currentCover.tagline1}</span> and <span class="tagline-2">${currentCover.tagline2}</span></h3>
-        <img class="price-tag" src="./assets/price.png">
-        <img class="overlay" src="./assets/overlay.png">`
-  };
+    savedSection.innerHTML += `
+        <section class="mini-cover" id = "${currentCover.id}">
+          <img class="cover-image" src="${currentCover.cover}">
+          <h2 class="cover-title">${currentCover.title}</h2>
+          <h3 class="tagline">A tale of <span class="tagline-1">${currentCover.tagline1}</span> and <span class="tagline-2">${currentCover.tagline2}</span></h3>
+          <img class="price-tag" src="./assets/price.png">
+          <img class="overlay" src="./assets/overlay.png">
+        </section>
+  `};
 };
 
 // We've provided one function to get you started
