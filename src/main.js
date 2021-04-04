@@ -65,11 +65,11 @@ function showRandomCover() {
 };
 
 function generateCover() {
-  var coverIndex = getRandomIndex(covers);
-  var titleIndex = getRandomIndex(titles);
-  var taglineIndex1 = getRandomIndex(descriptors);
-  var taglineIndex2 = getRandomIndex(descriptors);
-  currentCover = new Cover(covers[coverIndex], titles[titleIndex], descriptors[taglineIndex1], descriptors[taglineIndex2]);
+  var randomCoverImage = covers[getRandomIndex(covers)];
+  var randomTitle = titles[getRandomIndex(titles)];
+  var randomTagline1 = descriptors[getRandomIndex(descriptors)];
+  var randomTagline2 = descriptors[getRandomIndex(descriptors)];
+  currentCover = new Cover(randomCoverImage, randomTitle, randomTagline1, randomTagline2);
 };
 
 function showCover() {
